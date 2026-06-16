@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amanah | Sacred Postpartum Wellness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pearl:    #FAF7F4;
+      --deep:     #2C1A0E;
+      --rose:     #C4857A;
+      --sage:     #8FA68E;
+      --muted:    #9B8577;
+      --light:    #F0EAE5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--pearl);
+      color: var(--deep);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 5vw;
+      background: rgba(250,247,244,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196,133,122,0.15);
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      color: var(--deep);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: var(--rose); }
+
+    /* ── HERO ── */
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 5vw 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Breathing circle — signature element */
+    .breath-ring {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 1px solid rgba(196,133,122,0.25);
+      animation: breathe 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .breath-ring:nth-child(2) {
+      width: 540px; height: 540px;
+      border-color: rgba(143,166,142,0.15);
+      animation-delay: 1s;
+    }
+    .breath-ring:nth-child(3) {
+      width: 660px; height: 660px;
+      border-color: rgba(196,133,122,0.08);
+      animation-delay: 2s;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50%       { transform: scale(1.06); opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .breath-ring { animation: none; }
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: 0.12em;
+      color: var(--deep);
+      position: relative;
+    }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--muted);
+      margin-top: 1rem;
+      position: relative;
+    }
+
+    .hero-cta {
+      margin-top: 3rem;
+      position: relative;
+      display: inline-block;
+      padding: 0.85rem 2.4rem;
+      border: 1px solid var(--rose);
+      background: transparent;
+      color: var(--rose);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .hero-cta:hover {
+      background: var(--rose);
+      color: var(--pearl);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 6rem 5vw;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1rem;
+    }
+
+    section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    section p {
+      max-width: 600px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--rose);
+      margin: 0 auto 4rem;
+      opacity: 0.5;
+    }
+
+    /* ── MANIFESTO ── */
+    #manifesto {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      border-top: 1px solid var(--light);
+      padding-top: 6rem;
+    }
+
+    .manifesto-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--deep);
+    }
+
+    .manifesto-quote span {
+      color: var(--rose);
+    }
+
+    /* ── CHECKLIST ── */
+    #guidelines {
+      border-top: 1px solid var(--light);
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .check-card {
+      padding: 2rem;
+      background: var(--light);
+      border-left: 2px solid var(--rose);
+      transition: transform 0.3s;
+    }
+
+    .check-card:hover { transform: translateY(-4px); }
+
+    .check-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: rgba(196,133,122,0.25);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .check-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--deep);
+    }
+
+    .check-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: none;
+    }
+
+    /* ── PILLARS ── */
+    #pillars {
+      border-top: 1px solid var(--light);
+      text-align: center;
+    }
+
+    #pillars h2 { margin: 0 auto 1rem; }
+    #pillars > p { margin: 0 auto 3rem; }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .pillar {
+      padding: 2.5rem 1.5rem;
+      border: 1px solid var(--light);
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rose), var(--sage));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .pillar:hover::after { transform: scaleX(1); }
+
+    .pillar-icon {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .pillar h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      max-width: none;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      border-top: 1px solid var(--light);
+      text-align: center;
+      padding-bottom: 8rem;
+    }
+
+    #contact h2 { margin: 0 auto 1rem; }
+    #contact > p { margin: 0 auto 2.5rem; }
+
+    .contact-form {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 1px solid var(--light);
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--deep);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--rose);
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+
+    .contact-form button {
+      padding: 0.9rem;
+      background: var(--rose);
+      color: var(--pearl);
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover { background: #b06e63; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 5vw;
+      border-top: 1px solid var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer .logo { font-size: 1rem; }
+
+    footer p {
+      font-size: 0.75rem;
+      color: var(--muted);
+      max-width: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      #manifesto { grid-template-columns: 1fr; gap: 2rem; }
+      nav ul { gap: 1.2rem; }
+      .breath-ring { width: 260px; height: 260px; }
+      .breath-ring:nth-child(2) { width: 340px; height: 340px; }
+      .breath-ring:nth-child(3) { width: 420px; height: 420px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">AMANAH</div>
+    <ul>
+      <li><a href="#manifesto">Манифест</a></li>
+      <li><a href="#guidelines">Восстановление</a></li>
+      <li><a href="#pillars">Опоры</a></li>
+      <li><a href="#contact">Контакт</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <div class="breath-ring"></div>
+    <div class="breath-ring"></div>
+    <div class="breath-ring"></div>
+    <p class="hero-eyebrow">Sacred Postpartum Wellness</p>
+    <h1>Amanah</h1>
+    <p class="hero-sub">Забота о том, что доверено вам</p>
+    <button class="hero-cta" onclick="document.getElementById('manifesto').scrollIntoView({behavior:'smooth'})">
+      Начать путь восстановления
+    </button>
+  </header>
+
+  <!-- MANIFESTO -->
+  <section id="manifesto">
+    <div>
+      <p class="section-label">Манифест</p>
+      <h2>Храня доверенное</h2>
+      <p>
+        Ваше тело — это аманат, дар и доверие от Творца. Мы объединяем доказательную медицину
+        и мудрость Сунны, чтобы вернуть вам гармонию, силу и внутренний покой после рождения ребёнка.
+      </p>
+    </div>
+    <p class="manifesto-quote">
+      «Восстановление — это не роскошь.<br>
+      Это <span>обязанность</span> перед собой<br>
+      и перед тем, кого вы растите.»
+    </p>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section id="guidelines">
+    <p class="section-label">Восстановление</p>
+    <h2>Чек-лист послеродового здоровья</h2>
+    <p>Каждый шаг — это акт заботы о себе. Не спешите. Ваше тело знает свой темп.</p>
+
+    <div class="checklist">
+      <div class="check-card">
+        <div class="check-num">01</div>
+        <h3>Лабораторный контроль</h3>
+        <p>Анализы крови, гормональный фон, уровень железа и витамина D — основа, с которой начинается путь.</p>
+      </div>
+      <div class="check-card">
+        <div class="check-num">02</div>
+        <h3>Питание Таййиб</h3>
+        <p>Благое и питательное: цельные продукты, насыщенные железом, кальцием и омега-3 для матери и ребёнка.</p>
+      </div>
+      <div class="check-card">
+        <div class="check-num">03</div>
+        <h3>Дыхание и покой</h3>
+        <p>Осознанное дыхание, тихие практики и разрешение себе отдыхать — путь к внутреннему балансу.</p>
+      </div>
+      <div class="check-card">
+        <div class="check-num">04</div>
+        <h3>Поддержка тела</h3>
+        <p>Бережное движение, восстановление мышц тазового дна, массаж и традиционный уход после родов.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section id="pillars">
+    <p class="section-label">Наш подход</p>
+    <h2>Четыре опоры</h2>
+    <p>Целостный взгляд на женское здоровье: тело, душа, разум и связь с традицией.</p>
+
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-icon">🌿</div>
+        <h3>Медицина</h3>
+        <p>Доказательный подход, работа с врачами-специалистами и современная диагностика.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">☽</div>
+        <h3>Сунна</h3>
+        <p>Мудрость пророческой традиции: чёрный тмин, мёд, посты и молитва как часть исцеления.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">◯</div>
+        <h3>Тело</h3>
+        <p>Послеродовое восстановление, питание, сон и мягкое движение в вашем ритме.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">✦</div>
+        <h3>Душа</h3>
+        <p>Эмоциональное здоровье, благодарность, принятие и связь с сообществом женщин.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Связаться</p>
+    <h2>Начните разговор</h2>
+    <p>Напишите нам — мы ответим с вниманием и заботой.</p>
+
+    <div class="contact-form">
+      <input type="text" placeholder="Ваше имя">
+      <input type="email" placeholder="Электронная почта">
+      <textarea placeholder="Ваш вопрос или пожелание"></textarea>
+      <button type="button">Отправить</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="logo">AMANAH</div>
+    <p>© 2025 Amanah Wellness · Sacred Care for Modern Motherhood</p>
+  </footer>
+
+</body>
+</html>
